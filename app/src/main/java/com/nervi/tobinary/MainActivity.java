@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class MainActivity extends AppCompatActivity {
     private boolean allowWriteDecimalsNumbers = false;
@@ -72,8 +73,9 @@ public class MainActivity extends AppCompatActivity {
     private void getDecimal(String binaryNumber) {
         String[] binary = binaryNumber.split("");
         int result = 0;
+        System.out.println(Arrays.toString(binary));
         for (int i = binary.length - 1; i >= 0; i--) {
-            result += Integer.parseInt(binary[i]) * Math.pow(2, Math.abs(i - binary.length - 1));
+            result += Integer.parseInt(binary[i]) * Math.pow(2, Math.abs(i - binary.length + 1));
         }
         tvDecimal.setText(String.valueOf(result));
     }
